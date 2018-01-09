@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void resetAll(View view){
@@ -64,4 +63,19 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(String.valueOf(score));
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("scoreTeamA",scoreTeamA);
+        outState.putInt("scoreTeamB",scoreTeamB);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        scoreTeamA = savedInstanceState.getInt("scoreTeamA");
+        scoreTeamB = savedInstanceState.getInt("scoreTeamB");
+        displayTeamA(scoreTeamA);
+        displayTeamB(scoreTeamB);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }
