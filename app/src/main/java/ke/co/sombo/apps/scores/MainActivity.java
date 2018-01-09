@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB = savedInstanceState.getInt("scoreTeamB");
         displayTeamA(scoreTeamA);
         displayTeamB(scoreTeamB);
-
         super.onRestoreInstanceState(savedInstanceState);
     }
 }
